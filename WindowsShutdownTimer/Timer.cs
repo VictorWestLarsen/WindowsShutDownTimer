@@ -40,5 +40,15 @@ namespace Shutdown
             Process.Start(startInfo);
 
         }
+        public void CancelTimer()
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -a ";
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
+        }
     }
 }
