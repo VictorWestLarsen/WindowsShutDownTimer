@@ -18,7 +18,7 @@ namespace Shutdown
         public int HandleTime()
         {
             string time;
-            Console.WriteLine("Indtast tid til lukning som følgende eksempel timer:minutter");
+            Console.WriteLine("Enter your designated time in Hours:Minuts");
             time = Console.ReadLine();
             string[] timer = time.Split(':');
             Hours = int.Parse(timer[0]);
@@ -46,7 +46,7 @@ namespace Shutdown
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -a ";
+            startInfo.Arguments = "/C shutdown -a";
             process.StartInfo = startInfo;
             Process.Start(startInfo);
         }
