@@ -31,12 +31,14 @@ namespace Shutdown
 
         public void SetTimer(int Duration)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = "shutdown -s -t" + Duration;
-            process.Start();
-        }
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -s -t" + Duration;
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
 
+        }
     }
 }
