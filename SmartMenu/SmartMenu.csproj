@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6B7D5AF-5685-481D-B468-B8F3F71DC765}</ProjectGuid>
+    <ProjectGuid>{665B7EE9-9492-409B-AA45-E8CCE666BAC9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>WindowsShutdownTimer</RootNamespace>
-    <AssemblyName>WindowsShutdownTimer</AssemblyName>
+    <RootNamespace>SmartMenu</RootNamespace>
+    <AssemblyName>SmartMenu</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,19 +45,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Menu.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SmartMenu.cs\SmartMenu.cs.csproj">
-      <Project>{b8c6518d-2014-407a-8240-f4c58ccf2d00}</Project>
-      <Name>SmartMenu.cs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

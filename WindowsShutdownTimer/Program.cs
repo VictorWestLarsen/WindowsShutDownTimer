@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SmartMenuLibrary;
 
 namespace Shutdown
 {
@@ -11,20 +12,33 @@ namespace Shutdown
     {
         static void Main(string[] args)
         {
-            using (StreamReader menu = new StreamReader("Menu.txt"))
-            {
-                string line;
-                while ((line = menu.ReadLine()) != null)
-                {
-                    Console.WriteLine(line);
-                    Timer SleepTimer = new Timer();
-                    int Duration = SleepTimer.HandleTime();
-                    SleepTimer.SetTimer(Duration);
-                    Console.WriteLine("Computeren Slukker om: " + SleepTimer.Hours + " time(r) og " + SleepTimer.Minuts + " Minut(er)");
-                    Console.ReadKey();
+            Bindings binding = new Bindings();
+            Timer Mytimer = new Timer();
+            binding.bind("1", SetTimer);
+            binding.bind("2", CancelTimer);
+            binding.bind("3", Exit);
 
-                }
+            SmartMenu menu = new SmartMenu(binding);
+            menu.LoadMenu("menu.txt");
+            menu.Activate();
+
+            void SetTimer()
+            {
+                int duration;
+                duration = Mytimer.HandleTime();
+                Mytimer.SetTimer(duration);
             }
+            void CancelTimer()
+            {
+                Mytimer.CancelTimer();
+            }
+            void Exit()
+            {
+                Environment.Exit(1);
+            }
+
         }
+        
+        
     }
 }
