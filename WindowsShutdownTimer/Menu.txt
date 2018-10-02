@@ -1,0 +1,5 @@
+﻿	<Windows Shutdown Timer>
+	<What is gonna happen>
+	<Set a timer>;<1>
+	<Cancel a timer>;<2>
+	<Quit>;<3>

@@ -18,30 +18,37 @@ namespace Shutdown
         public int HandleTime()
         {
             string time;
-            int input;
-            Console.WriteLine("Indtast tid til lukning som følgende eksempel timer:minutter");
+            Console.WriteLine("Enter your designated time in Hours:Minuts");
             time = Console.ReadLine();
-            if (time.Contains(':'))
-            {
-                string[] timer = time.Split(':');
-                Hours = int.Parse(timer[0]);
-                Minuts = int.Parse(timer[1]);
-                int Seconds = Hours * 3600 + Minuts * 60;
+            string[] timer = time.Split(':');
+            Hours = int.Parse(timer[0]);
+            Minuts = int.Parse(timer[1]);
+            int Seconds = Hours * 3600 + Minuts * 60;
 
-
-                return Seconds;
-            }
+            return Seconds;
 
         }
 
         public void SetTimer(int Duration)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = "/C shutdown -s -t" + Duration;
-            process.Start();
-        }
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -s -t " + Duration;
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
 
+        }
+        public void CancelTimer()
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -a";
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
+        }
     }
 }
