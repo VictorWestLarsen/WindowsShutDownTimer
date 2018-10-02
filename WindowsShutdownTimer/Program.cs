@@ -13,7 +13,7 @@ namespace Shutdown
             Timer SleepTimer = new Timer();
             int Duration = SleepTimer.HandleTime();
             SleepTimer.SetTimer(Duration);
-            Console.WriteLine("Computeren Slukker om: " + SleepTimer.Hours + " time(r) og " + SleepTimer.Minuts + "Minut(er)");
+            Console.WriteLine("Computeren Slukker om: " + SleepTimer.Hours + " time(r) og " + SleepTimer.Minuts + " Minut(er)");
             Console.ReadKey();
         }
     }
