@@ -66,7 +66,7 @@ namespace Shutdown
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -f ";
+            startInfo.Arguments = "/C shutdown -s -f";
             process.StartInfo = startInfo;
             Process.Start(startInfo);
         }
