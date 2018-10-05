@@ -15,6 +15,17 @@ namespace Shutdown
         {
 
         }
+
+        private void cmd(string command)
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = command;
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
+        }
         public int HandleTime()
         {
             string time;
@@ -31,44 +42,20 @@ namespace Shutdown
 
         public void SetTimer(int Duration)
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -s -t " + Duration;
-            process.StartInfo = startInfo;
-            Process.Start(startInfo);
+            cmd("/C shutdown -s -t " + Duration);
 
         }
         public void CancelTimer()
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -a";
-            process.StartInfo = startInfo;
-            Process.Start(startInfo);
+            cmd("/C shutdown -a");
         }
         public void RestartPC()
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -r ";
-            process.StartInfo = startInfo;
-            Process.Start(startInfo);
+            cmd("/C shutdown -r");
         }
         public void ForceShutdown()
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -s -f -t 00";
-            process.StartInfo = startInfo;
-            Process.Start(startInfo);
+            cmd("/C shutdown -s -f -t 00");
         }
     }
 }
