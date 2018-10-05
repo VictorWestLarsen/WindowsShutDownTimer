@@ -2,4 +2,6 @@
 	What is gonna happen
 	Set a timer;1
 	Cancel a timer;2
-	Quit;3
+	Restart PC;3
+	Force Shutdown;4
+	Quit;5

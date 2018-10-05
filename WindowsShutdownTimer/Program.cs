@@ -16,7 +16,9 @@ namespace Shutdown
             Timer Mytimer = new Timer();
             binding.bind("1", SetTimer);
             binding.bind("2", CancelTimer);
-            binding.bind("3", Exit);
+            binding.bind("3", RestartPC);
+            binding.bind("4", ForceShutdown);
+            binding.bind("5", Exit);
 
             SmartMenu menu = new SmartMenu(binding);
             menu.LoadMenu("menu.txt");
@@ -31,6 +33,14 @@ namespace Shutdown
             void CancelTimer()
             {
                 Mytimer.CancelTimer();
+            }
+            void RestartPC()
+            {
+                Mytimer.RestartPC();
+            }
+            void ForceShutdown()
+            {
+                Mytimer.ForceShutdown();
             }
             void Exit()
             {

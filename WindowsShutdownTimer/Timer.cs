@@ -50,5 +50,25 @@ namespace Shutdown
             process.StartInfo = startInfo;
             Process.Start(startInfo);
         }
+        public void RestartPC()
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -r ";
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
+        }
+        public void ForceShutdown()
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -f ";
+            process.StartInfo = startInfo;
+            Process.Start(startInfo);
+        }
     }
 }
